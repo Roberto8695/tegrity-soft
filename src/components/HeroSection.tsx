@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "./ui/sparkles";
+import { Cover } from "@/components/ui/cover";
 import Link from "next/link";
 
 export function HeroSection() {
@@ -17,9 +18,9 @@ export function HeroSection() {
           particleColor="#FFFFFF"
         />
       </div>
-      <div className="mt-16 sm:mt-24 md:mt-28 relative z-20 w-full max-w-5xl mx-auto px-4 flex flex-col items-center">
+      <div className="mt-16 font-barlow-condensed sm:mt-24 md:mt-28 relative z-20 w-full max-w-5xl mx-auto px-4 flex flex-col items-center">
         <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white mb-6">
-          Build great products
+           Creamos sitios web increíbles <br /> a una <Cover>velocidad increíble</Cover>
         </h1>
         <p className="text-lg md:text-xl text-gray-300 text-center max-w-2xl mb-10">
           Desarrollo soluciones web innovadoras y a medida para potenciar tu

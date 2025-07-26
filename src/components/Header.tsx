@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-
+import FuzzyText from '@/components/ui/FuzzyText';
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,17 +44,22 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className={`text-2xl font-bold ${
+            <Link href="/" className={`text-2xl font-bold font-bebas ${
               scrolled
                 ? 'text-gray-900 dark:text-white hover:text-indigo-600'
                 : 'text-white hover:text-indigo-300'
             } transition-colors duration-300`}>
-              Tegrity-Soft
+              <FuzzyText 
+  baseIntensity={0.1} 
+  
+>
+  Tegrity-Soft
+</FuzzyText>
             </Link>
           </div>
           
           {/* Navegación Desktop */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden font-bebas md:flex items-center space-x-8">
             <Link href="/" className={navLinkClasses}>
               Inicio
               <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
