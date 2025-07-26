@@ -34,23 +34,29 @@ const Header = () => {
     <header
       className={`absolute top-0 w-full z-50 transition-all duration-500 ease-in-out ${
         scrolled
-          ? "fixed bg-white/90 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-transparent py-6"
+          ? "fixed bg-white/90 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-1 sm:py-2"
+          : "bg-transparent py-4 sm:py-6"
       }`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link
               href="/"
-              className={`text-2xl font-bold font-bebas ${
+              className={`text-xl sm:text-2xl font-bold font-bebas ${
                 scrolled
                   ? "text-gray-900 dark:text-white hover:text-indigo-600"
                   : "text-white hover:text-indigo-300"
               } transition-colors duration-300`}
             >
-              <FuzzyText baseIntensity={0.1}>Tegrity-Soft</FuzzyText>
+              <FuzzyText 
+                fontSize="clamp(2.2rem, 4vw, 2rem)"
+                baseIntensity={0.05}
+                hoverIntensity={0.1}
+              >
+                Tegrity-Soft
+              </FuzzyText>
             </Link>
           </div>
 
@@ -92,7 +98,7 @@ const Header = () => {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className={`inline-flex items-center justify-center p-2 rounded-md ${
+              className={`inline-flex items-center justify-center p-1.5 rounded-md ${
                 scrolled
                   ? "text-gray-700 dark:text-gray-300 hover:text-indigo-600"
                   : "text-white hover:text-indigo-300"
@@ -104,7 +110,7 @@ const Header = () => {
               <span className="sr-only">Abrir menú principal</span>
               {/* Icono de hamburguesa */}
               <svg
-                className={`${mobileMenuOpen ? "hidden" : "block"} h-6 w-6`}
+                className={`${mobileMenuOpen ? "hidden" : "block"} h-5 w-5 sm:h-6 sm:w-6`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -120,7 +126,7 @@ const Header = () => {
               </svg>
               {/* Icono de cerrar */}
               <svg
-                className={`${mobileMenuOpen ? "block" : "hidden"} h-6 w-6`}
+                className={`${mobileMenuOpen ? "block" : "hidden"} h-5 w-5 sm:h-6 sm:w-6`}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"

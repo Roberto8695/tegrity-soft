@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
+    <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md pt-16 sm:pt-20">
       <div className="w-full absolute inset-0 h-screen">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -18,19 +18,19 @@ export function HeroSection() {
           particleColor="#FFFFFF"
         />
       </div>
-      <div className="mt-16 font-barlow-condensed sm:mt-24 md:mt-28 relative z-20 w-full max-w-5xl mx-auto px-4 flex flex-col items-center">
-        <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white mb-6">
+      <div className="mt-20 sm:mt-24 md:mt-28 lg:mt-32 relative z-20 w-full max-w-5xl mx-auto px-4 flex flex-col items-center">
+        <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white mb-6 font-bebas">
            Creamos sitios web increíbles <br /> a una <Cover>velocidad increíble</Cover>
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 text-center max-w-2xl mb-10">
+        <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-2xl mb-8 sm:mb-10 px-2">
           Desarrollo soluciones web innovadoras y a medida para potenciar tu
           negocio con las últimas tecnologías del mercado.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mb-10">
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+        <div className="grid   grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-4xl mb-8 sm:mb-10">
+          <div className="bg-white/10  backdrop-blur-sm p-4 sm:p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-indigo-400 mb-4"
+              className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-400 mb-3 sm:mb-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -42,17 +42,17 @@ export function HeroSection() {
                 d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 font-bebas">
               Desarrollo Web
             </h3>
             <p className="text-gray-300 text-sm">
               Sitios y aplicaciones web modernas, responsivas y optimizadas
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+          <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-indigo-400 mb-4"
+              className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-400 mb-3 sm:mb-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -64,17 +64,17 @@ export function HeroSection() {
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               />
             </svg>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 font-bebas">
               Diseño UI/UX
             </h3>
             <p className="text-gray-300 text-sm">
               Interfaces intuitivas y experiencias de usuario excepcionales
             </p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
+          <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 text-indigo-400 mb-4"
+              className="h-8 w-8 sm:h-10 sm:w-10 text-indigo-400 mb-3 sm:mb-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -86,7 +86,7 @@ export function HeroSection() {
                 d="M13 10V3L4 14h7v7l9-11h-7z"
               />
             </svg>
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 font-bebas">
               Optimización
             </h3>
             <p className="text-gray-300 text-sm">
@@ -97,7 +97,7 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/servicios"
-            className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition-colors duration-300 flex items-center justify-center"
+            className="px-6 sm:px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md transition-colors duration-300 flex items-center justify-center font-bebas text-lg"
           >
             Ver servicios
             <svg
@@ -117,7 +117,7 @@ export function HeroSection() {
           </Link>
           <Link
             href="/contacto"
-            className="px-8 py-3 bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium rounded-md transition-all duration-300 flex items-center justify-center"
+            className="px-6 sm:px-8 py-3 bg-transparent hover:bg-white/10 text-white border border-white/30 font-medium rounded-md transition-all duration-300 flex items-center justify-center font-bebas text-lg"
           >
             Contactar
           </Link>
