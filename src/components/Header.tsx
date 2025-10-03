@@ -28,13 +28,13 @@ const Header = () => {
 
   // Clases personalizadas para los elementos del menú con efecto underline
   const navLinkClasses = `relative ${
-    scrolled ? "text-gray-800 dark:text-gray-200" : "text-white"
+    scrolled ? "text-white dark:text-gray-200" : "text-white"
   } hover:text-indigo-400 transition-colors text-lg font-medium py-2 group`;
   return (
     <header
       className={`absolute top-0 w-full z-50 transition-all duration-500 ease-in-out ${
         scrolled
-          ? "fixed bg-white/90 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-1 sm:py-2"
+          ? "fixed bg-black/90 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-1 sm:py-2"
           : "bg-transparent py-4 sm:py-6"
       }`}
     >
@@ -46,7 +46,7 @@ const Header = () => {
               href="/"
               className={`text-xl sm:text-2xl font-bold font-bebas ${
                 scrolled
-                  ? "text-gray-900 dark:text-white hover:text-indigo-600"
+                  ? "text-white dark:text-white hover:text-indigo-600"
                   : "text-white hover:text-indigo-300"
               } transition-colors duration-300`}
             >
@@ -100,7 +100,7 @@ const Header = () => {
               type="button"
               className={`inline-flex items-center justify-center p-1.5 rounded-md ${
                 scrolled
-                  ? "text-gray-700 dark:text-gray-300 hover:text-indigo-600"
+                  ? "text-white dark:text-gray-300 hover:text-indigo-600"
                   : "text-white hover:text-indigo-300"
               } focus:outline-none transition-colors duration-300`}
               aria-controls="mobile-menu"
@@ -163,7 +163,7 @@ const Header = () => {
             href="/"
             className={`relative block px-3 py-2 rounded-md text-base font-medium ${
               scrolled
-                ? "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                ? "text-white dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 : "text-white hover:bg-white/10"
             } hover:text-indigo-400 group`}
           >
@@ -174,7 +174,7 @@ const Header = () => {
             href="/servicios"
             className={`relative block px-3 py-2 rounded-md text-base font-medium ${
               scrolled
-                ? "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                ? "text-white dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 : "text-white hover:bg-white/10"
             } hover:text-indigo-400 group`}
           >
@@ -185,7 +185,7 @@ const Header = () => {
             href="/proyectos"
             className={`relative block px-3 py-2 rounded-md text-base font-medium ${
               scrolled
-                ? "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                ? "text-white dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 : "text-white hover:bg-white/10"
             } hover:text-indigo-400 group`}
           >
@@ -196,7 +196,7 @@ const Header = () => {
             href="/tecnologias"
             className={`relative block px-3 py-2 rounded-md text-base font-medium ${
               scrolled
-                ? "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                ? "text-white dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                 : "text-white hover:bg-white/10"
             } hover:text-indigo-400 group`}
           >
