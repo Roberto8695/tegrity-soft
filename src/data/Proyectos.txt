@@ -1,0 +1,34 @@
+---1---
+
+Titulo: Chequeatuvoto
+Descripción: Página de información sobre elecciones presidenciales Bolivia
+Link: https://chequeatuvoto.chequeabolivia.bo/
+Img: public/img-projects
+
+---2---
+
+Titulo: Coalicion
+Descripción: Página para combatir la desinformación 
+Link: https://coalicionv3.vercel.app/
+Img: public/img-projects
+
+---3---
+
+Titulo: Chiptuningbo
+Descripción: Ecommerce de ecutuning personalizados
+Link: https://chiptuningbo.com/
+Img: public/img-projects
+
+---4---
+
+Titulo: Electrocorp
+Descripción: Ecommerce de herramientas de diagnostico automotriz
+Link: https://electrocorp.com.bo
+Img: public/img-projects
+
+---5---
+
+Titulo: CJP Truckick
+Descripción: Pagina de aterrizaje de servicios de transporte en EEUU
+Link: https://cjptrucking.us
+Img: public/img-projects
