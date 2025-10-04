@@ -72,7 +72,7 @@ export function ContactForm() {
   ];
 
   return (
-    <section className="relative py-20 bg-slate-900 min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 bg-slate-900 min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background sparkles effect */}
       <div className="w-full absolute inset-0 h-full opacity-30">
         <SparklesCore
@@ -93,26 +93,26 @@ export function ContactForm() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-bebas">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
             Hablemos de tu{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Proyecto
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto px-4">
             ¿Tienes una idea? Estoy aquí para ayudarte a hacerla realidad
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 font-bebas">
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-2xl">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 font-bebas">
               Envíame un Mensaje
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               {/* Name Input */}
               <div className="group">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -125,7 +125,7 @@ export function ContactForm() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 group-hover:border-white/20"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 group-hover:border-white/20 text-sm sm:text-base"
                   placeholder="Tu nombre completo"
                 />
               </div>
@@ -142,7 +142,7 @@ export function ContactForm() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 group-hover:border-white/20"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 group-hover:border-white/20 text-sm sm:text-base"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -159,7 +159,7 @@ export function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 resize-none group-hover:border-white/20"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400 focus:bg-white/10 transition-all duration-300 resize-none group-hover:border-white/20 text-sm sm:text-base"
                   placeholder="Cuéntame sobre tu proyecto..."
                 />
               </div>
@@ -168,7 +168,7 @@ export function ContactForm() {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 font-bebas text-xl shadow-lg hover:shadow-indigo-500/50 transform hover:scale-[1.02] disabled:transform-none disabled:cursor-not-allowed"
+                className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 font-bebas text-lg sm:text-xl shadow-lg hover:shadow-indigo-500/50 transform hover:scale-[1.02] disabled:transform-none disabled:cursor-not-allowed"
               >
                 {status === "sending" ? (
                   <>
@@ -198,40 +198,40 @@ export function ContactForm() {
           </div>
 
           {/* Contact Methods & Info */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Quick Contact Methods */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 font-bebas">
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-2xl">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 font-bebas">
                 Contacto Directo
               </h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
                 Elige tu método de contacto preferido
               </p>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {contactMethods.map((method) => (
                   <a
                     key={method.name}
                     href={method.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+                    className="group flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
                   >
-                    <div className={`p-3 rounded-lg bg-gradient-to-br ${method.color} ${method.hoverColor} transition-all duration-300`}>
+                    <div className={`p-2 sm:p-3 rounded-lg bg-gradient-to-br ${method.color} ${method.hoverColor} transition-all duration-300`}>
                       <div className="text-white">
                         {method.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-white font-semibold group-hover:text-indigo-300 transition-colors duration-300">
+                      <h4 className="text-sm sm:text-base text-white font-semibold group-hover:text-indigo-300 transition-colors duration-300">
                         {method.label}
                       </h4>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-xs sm:text-sm text-gray-400">
                         Conectar vía {method.label}
                       </p>
                     </div>
                     <svg
-                      className="w-5 h-5 text-gray-400 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-indigo-400 group-hover:translate-x-1 transition-all duration-300"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -244,34 +244,34 @@ export function ContactForm() {
             </div>
 
             {/* Additional Info */}
-            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 md:p-8 border border-white/10 shadow-2xl">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 bg-indigo-600/20 rounded-lg">
-                  <svg className="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-5 sm:p-6 md:p-8 border border-white/10 shadow-2xl">
+              <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="p-2 sm:p-3 bg-indigo-600/20 rounded-lg flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2 font-bebas text-lg">
+                  <h4 className="text-base sm:text-lg text-white font-semibold mb-1 sm:mb-2 font-bebas">
                     Tiempo de Respuesta
                   </h4>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-xs sm:text-sm text-gray-400">
                     Respondo dentro de las 24 horas hábiles
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-purple-600/20 rounded-lg">
-                  <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-2 sm:p-3 bg-purple-600/20 rounded-lg flex-shrink-0">
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold mb-2 font-bebas text-lg">
+                  <h4 className="text-base sm:text-lg text-white font-semibold mb-1 sm:mb-2 font-bebas">
                     Email Directo
                   </h4>
-                  <a href="mailto:roberto@tegrity-soft.com" className="text-indigo-400 hover:text-indigo-300 text-sm transition-colors duration-300">
+                  <a href="mailto:roberto@tegrity-soft.com" className="text-xs sm:text-sm text-indigo-400 hover:text-indigo-300 transition-colors duration-300 break-all">
                     roberto@tegrity-soft.com
                   </a>
                 </div>

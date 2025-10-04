@@ -4,33 +4,33 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 
 export function ServiceSection() {
   return (
-    <section className="py-20 bg-slate-950 relative">
+    <section className="py-12 sm:py-16 md:py-20 bg-slate-950 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-bebas">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
             Nuestros <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Paquetes</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Soluciones digitales escalables que se adaptan a las necesidades de tu negocio
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {/* Paquete Básico */}
-          <CardSpotlight className="h-auto p-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-white font-bebas mb-2">
+          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 BÁSICO
               </h3>
-              <div className="text-4xl font-bold text-indigo-400 mb-2">
+              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
                 $499
               </div>
-              <p className="text-gray-400 text-sm">Perfecto para empezar</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Perfecto para empezar</p>
             </div>
             
             <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-4">Incluye:</p>
-              <ul className="list-none space-y-3">
+              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Incluye:</p>
+              <ul className="list-none space-y-2 sm:space-y-3">
                 <Step title="Sitio web responsivo (hasta 5 páginas)" />
                 <Step title="Diseño moderno y profesional" />
                 <Step title="Optimización SEO básica" />
@@ -41,29 +41,29 @@ export function ServiceSection() {
               </ul>
             </div>
             
-            <button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 font-bebas text-lg">
+            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
               Elegir Básico
             </button>
           </CardSpotlight>
 
           {/* Paquete Pro */}
-          <CardSpotlight className="h-auto p-8 border-2 border-indigo-500">
-            <div className="text-center mb-6">
-              <div className="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-semibold mb-3 inline-block">
+          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8 border-2 border-indigo-500">
+            <div className="text-center mb-4 sm:mb-6">
+              <div className="bg-indigo-500 text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3 inline-block">
                 MÁS POPULAR
               </div>
-              <h3 className="text-2xl font-bold text-white font-bebas mb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 PROFESIONAL
               </h3>
-              <div className="text-4xl font-bold text-indigo-400 mb-2">
+              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
                 $899
               </div>
-              <p className="text-gray-400 text-sm">Para negocios en crecimiento</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Para negocios en crecimiento</p>
             </div>
             
             <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-4">Todo lo básico +</p>
-              <ul className="list-none space-y-3">
+              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Todo lo básico +</p>
+              <ul className="list-none space-y-2 sm:space-y-3">
                 <Step title="Sitio web hasta 10 páginas" />
                 <Step title="Panel de administración" />
                 <Step title="Blog integrado" />
@@ -75,26 +75,26 @@ export function ServiceSection() {
               </ul>
             </div>
             
-            <button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 font-bebas text-lg">
+            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
               Elegir Pro
             </button>
           </CardSpotlight>
 
           {/* Paquete Enterprise */}
-          <CardSpotlight className="h-auto p-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl font-bold text-white font-bebas mb-2">
+          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8">
+            <div className="text-center mb-4 sm:mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 ENTERPRISE
               </h3>
-              <div className="text-4xl font-bold text-indigo-400 mb-2">
+              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
                 $1,499
               </div>
-              <p className="text-gray-400 text-sm">Solución completa</p>
+              <p className="text-gray-400 text-xs sm:text-sm">Solución completa</p>
             </div>
             
             <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-4">Todo lo pro +</p>
-              <ul className="list-none space-y-3">
+              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Todo lo pro +</p>
+              <ul className="list-none space-y-2 sm:space-y-3">
                 <Step title="Sitio web ilimitado" />
                 <Step title="E-commerce completo" />
                 <Step title="Sistema de usuarios" />
@@ -106,7 +106,7 @@ export function ServiceSection() {
               </ul>
             </div>
             
-            <button className="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 font-bebas text-lg">
+            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
               Elegir Enterprise
             </button>
           </CardSpotlight>
@@ -118,9 +118,9 @@ export function ServiceSection() {
  
 const Step = ({ title }: { title: string }) => {
   return (
-    <li className="flex gap-3 items-start">
+    <li className="flex gap-2 sm:gap-3 items-start">
       <CheckIcon />
-      <p className="text-gray-300">{title}</p>
+      <p className="text-gray-300 text-xs sm:text-sm">{title}</p>
     </li>
   );
 };
@@ -133,7 +133,7 @@ const CheckIcon = () => {
       height="20"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="h-5 w-5 text-indigo-400 mt-0.5 shrink-0"
+      className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-400 mt-0.5 shrink-0"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path

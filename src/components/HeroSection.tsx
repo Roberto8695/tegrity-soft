@@ -6,8 +6,8 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md pt-16 sm:pt-20">
-      <div className="w-full absolute inset-0 h-screen">
+    <div className="min-h-screen h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md pt-24 sm:pt-20 md:pt-16">
+      <div className="w-full absolute inset-0 h-full">
         <SparklesCore
           id="tsparticlesfullpage"
           background="transparent"
@@ -18,15 +18,15 @@ export function HeroSection() {
           particleColor="#FFFFFF"
         />
       </div>
-      <div className="mt-20 sm:mt-24 md:mt-28 lg:mt-32 relative z-20 w-full max-w-5xl mx-auto px-4 flex flex-col items-center">
-        <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white mb-6 font-bebas">
-           Creamos sitios web increíbles <br /> a una <Cover>velocidad increíble</Cover>
+      <div className="mt-0 sm:mt-4 md:mt-12 lg:mt-16 relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center text-white mb-4 sm:mb-6 font-bebas leading-tight">
+           Creamos sitios web increíbles <br className="hidden sm:block" /> a una <Cover>velocidad increíble</Cover>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center max-w-2xl mb-8 sm:mb-10 px-2">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 text-center max-w-2xl mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4">
           Desarrollo soluciones web innovadoras y a medida para potenciar tu
           negocio con las últimas tecnologías del mercado.
         </p>
-        <div className="grid   grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-4xl mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 w-full max-w-4xl mb-6 sm:mb-8 md:mb-10">
           <div className="bg-white/10  backdrop-blur-sm p-4 sm:p-6 rounded-lg hover:bg-white/15 transition-all duration-300 flex flex-col items-center text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

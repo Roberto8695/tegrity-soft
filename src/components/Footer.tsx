@@ -71,26 +71,26 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/10 to-transparent pointer-events-none" />
       
       {/* Main footer content */}
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-14 md:pt-16 pb-6 sm:pb-8">
         {/* Top section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand section */}
-          <div className="lg:col-span-1">
-            <h3 className="text-3xl font-bold mb-4 font-bebas bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="lg:col-span-1 text-center sm:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 font-bebas bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               Tegrity Soft
             </h3>
-            <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+            <p className="text-gray-400 mb-4 sm:mb-6 text-sm leading-relaxed px-4 sm:px-0">
               Creando experiencias web excepcionales con tecnología de vanguardia. Tu visión, nuestro código.
             </p>
             {/* Social links */}
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3 justify-center sm:justify-start">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative p-2 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-indigo-400/50"
+                  className="group relative p-1.5 sm:p-2 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-indigo-400/50"
                   aria-label={social.name}
                 >
                   <div className="text-gray-400 group-hover:text-indigo-400 transition-colors duration-300">
@@ -102,16 +102,16 @@ export function Footer() {
           </div>
 
           {/* Company links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4 font-bebas">
+          <div className="text-center sm:text-left">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 font-bebas">
               Empresa
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-sm inline-flex items-center group"
+                    className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {link.name}
@@ -123,16 +123,16 @@ export function Footer() {
           </div>
 
           {/* Services links */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4 font-bebas">
+          <div className="text-center sm:text-left">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 font-bebas">
               Servicios
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-sm inline-flex items-center group"
+                    className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm inline-flex items-center group"
                   >
                     <span className="group-hover:translate-x-1 transition-transform duration-300">
                       {link.name}
@@ -144,20 +144,20 @@ export function Footer() {
           </div>
 
           {/* Newsletter/CTA section */}
-          <div>
-            <h4 className="text-lg font-semibold text-white mb-4 font-bebas">
+          <div className="text-center sm:text-left">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 font-bebas">
               Mantente Actualizado
             </h4>
-            <p className="text-gray-400 text-sm mb-4">
+            <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 px-4 sm:px-0">
               Recibe las últimas noticias y actualizaciones.
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-2 sm:gap-3 px-4 sm:px-0">
               <input
                 type="email"
                 placeholder="tu@email.com"
-                className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400/50 focus:bg-white/10 transition-all duration-300 text-sm"
+                className="px-3 sm:px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-indigo-400/50 focus:bg-white/10 transition-all duration-300 text-xs sm:text-sm"
               />
-              <button className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 text-sm font-medium font-bebas">
+              <button className="px-3 sm:px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg transition-all duration-300 text-xs sm:text-sm font-medium font-bebas">
                 Suscribirse
               </button>
             </div>
@@ -165,26 +165,26 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-8" />
+        <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-6 sm:mb-8" />
 
         {/* Bottom section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-gray-400 text-sm text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <div className="text-gray-400 text-xs sm:text-sm text-center md:text-left">
             © {currentYear} Tegrity Soft. Todos los derechos reservados.
           </div>
           
           {/* Legal links */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6">
             {footerLinks.legal.map((link, index) => (
               <React.Fragment key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-sm"
+                  className="text-gray-400 hover:text-indigo-400 transition-colors duration-300 text-xs sm:text-sm"
                 >
                   {link.name}
                 </Link>
                 {index < footerLinks.legal.length - 1 && (
-                  <span className="text-gray-600">•</span>
+                  <span className="text-gray-600 hidden sm:inline">•</span>
                 )}
               </React.Fragment>
             ))}
@@ -192,7 +192,7 @@ export function Footer() {
         </div>
 
         {/* Decorative element */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 sm:w-64 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
       </div>
     </footer>
   );

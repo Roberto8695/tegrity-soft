@@ -6,18 +6,18 @@ import Image from "next/image";
 
 export function ProyectosSection() {
   return (
-    <section className="py-20 bg-slate-900 relative">
+    <section className="py-12 sm:py-16 md:py-20 bg-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-bebas">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
             Nuestros <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Proyectos</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Descubre algunos de nuestros trabajos más destacados y exitosos
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-18 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-16 lg:gap-18 justify-items-center">
           {proyectos.map((proyecto) => (
             <ProyectoCard key={proyecto.id} proyecto={proyecto} />
           ))}
@@ -33,14 +33,14 @@ interface ProyectoCardProps {
 
 const ProyectoCard: React.FC<ProyectoCardProps> = ({ proyecto }) => {
   return (
-    <div className="w-full max-w-sm">
+    <div className="w-full max-w-sm mx-auto">
       <PinContainer
         title={proyecto.link}
         href={proyecto.link}
       >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 w-[20rem] h-[20rem]">
+        <div className="flex basis-full flex-col p-3 sm:p-4 tracking-tight text-slate-100/50 w-[18rem] sm:w-[20rem] h-[18rem] sm:h-[20rem]">
           {/* Imagen del proyecto */}
-          <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
+          <div className="relative w-full h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg overflow-hidden">
             <Image
               src={proyecto.imagen}
               alt={proyecto.titulo}
@@ -52,11 +52,11 @@ const ProyectoCard: React.FC<ProyectoCardProps> = ({ proyecto }) => {
           
           {/* Contenido del proyecto */}
           <div className="flex flex-col flex-1">
-            <h3 className="max-w-xs !pb-2 !m-0 font-bold text-lg text-slate-100 font-bebas">
+            <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base sm:text-lg text-slate-100 font-bebas">
               {proyecto.titulo}
             </h3>
             
-            <div className="text-sm !m-0 !p-0 font-normal">
+            <div className="text-xs sm:text-sm !m-0 !p-0 font-normal">
               <span className="text-slate-400">
                 {proyecto.descripcion}
               </span>

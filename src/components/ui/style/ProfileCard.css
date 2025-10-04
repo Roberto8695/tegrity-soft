@@ -307,6 +307,19 @@
   opacity: calc(1.75 - var(--pointer-from-center));
 }
 
+@media screen {
+  .pc-avatar-content .avatar {
+ 
+  max-width: 320px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  bottom: -150px;
+  opacity: calc(1.75 - var(--pointer-from-center));
+}
+
+}
+
 .pc-avatar-content::before {
   content: '';
   position: absolute;
@@ -435,6 +448,9 @@
   -webkit-background-clip: text;
 }
 
+@media screen {
+  
+}
 .pc-details p {
   font-weight: 600;
   position: relative;
