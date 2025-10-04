@@ -13,7 +13,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 1,
     titulo: "Chequeatuvoto",
-    descripcion: "Página de información sobre elecciones presidenciales Bolivia",
+    descripcion: "Página de información sobre elecciones presidenciales Bolivia.",
     link: "https://chequeatuvoto.chequeabolivia.bo/",
     imagen: "/img-projects/chequeatuvoto.webp",
     tecnologias: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
@@ -23,7 +23,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 2,
     titulo: "Coalicion",
-    descripcion: "Página para combatir la desinformación",
+    descripcion: "Página para combatir la desinformación.",
     link: "https://coalicionv3.vercel.app/",
     imagen: "/img-projects/coalicion.webp",
     tecnologias: ["Next.js", "React", "Vercel", "CSS3"],
@@ -33,7 +33,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 3,
     titulo: "Chiptuningbo",
-    descripcion: "Ecommerce de ecutuning personalizados",
+    descripcion: "Ecommerce de ecutuning personalizados.",
     link: "https://chiptuningbo.com/",
     imagen: "/img-projects/chiptuning.webp",
     tecnologias: ["E-commerce", "JavaScript", "PHP", "MySQL"],
@@ -43,7 +43,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 4,
     titulo: "Electrocorp",
-    descripcion: "Ecommerce de herramientas de diagnóstico automotriz",
+    descripcion: "Ecommerce de herramientas de diagnóstico automotriz.",
     link: "https://electrocorp.com.bo",
     imagen: "/img-projects/electrocorp.webp",
     tecnologias: ["E-commerce", "React", "Node.js", "MongoDB"],
@@ -53,7 +53,7 @@ export const proyectos: Proyecto[] = [
   {
     id: 5,
     titulo: "CJP Trucking",
-    descripcion: "Página de aterrizaje de servicios de transporte en EEUU",
+    descripcion: "Página de aterrizaje de servicios de transporte en EEUU.",
     link: "https://cjptrucking.us/",
     imagen: "/img-projects/cjptruckin.webp",
     tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
@@ -63,7 +63,7 @@ export const proyectos: Proyecto[] = [
    {
     id: 6,
     titulo: "Alcaldia municipal de Colcapirhua",
-    descripcion: "Página de servicios municipales de Colcapirhua",
+    descripcion: "Página de servicios municipales de Colcapirhua.",
     link: "https://apprueba.colcapirhua.gob.bo/",
     imagen: "/img-projects/colcapirhua.webp",
     tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],

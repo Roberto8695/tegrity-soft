@@ -9,8 +9,8 @@ export function ProyectosSection() {
     <section className="py-20 bg-slate-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-bebas">
-            Nuestros Proyectos
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 font-bebas">
+            Nuestros <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Proyectos</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Descubre algunos de nuestros trabajos más destacados y exitosos

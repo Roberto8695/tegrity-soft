@@ -32,9 +32,9 @@ const Header = () => {
   } hover:text-indigo-400 transition-colors text-lg font-medium py-2 group`;
   return (
     <header
-      className={`absolute top-0 w-full z-50 transition-all duration-500 ease-in-out ${
+      className={`absolute top-0 w-full z-999 transition-all duration-500 ease-in-out ${
         scrolled
-          ? "fixed bg-black/90 dark:bg-gray-900/95 backdrop-blur-md shadow-lg py-1 sm:py-2"
+          ? "fixed bg-black/60 dark:bg-gray-900/60 backdrop-blur-md shadow-lg py-1 sm:py-2"
           : "bg-transparent py-4 sm:py-6"
       }`}
     >

@@ -219,15 +219,21 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
 
     const handleClick = () => {
       if (!enableMobileTilt || location.protocol !== 'https:') return;
-      if (typeof (window.DeviceMotionEvent as any).requestPermission === 'function') {
-        (window.DeviceMotionEvent as any)
+      
+      // Type-safe check for iOS 13+ DeviceMotionEvent permission
+      const DeviceMotionEventType = window.DeviceMotionEvent as typeof DeviceMotionEvent & {
+        requestPermission?: () => Promise<'granted' | 'denied'>;
+      };
+      
+      if (typeof DeviceMotionEventType.requestPermission === 'function') {
+        DeviceMotionEventType
           .requestPermission()
           .then((state: string) => {
             if (state === 'granted') {
               window.addEventListener('deviceorientation', deviceOrientationHandler);
             }
           })
-          .catch((err: any) => console.error(err));
+          .catch((err: Error) => console.error(err));
       } else {
         window.addEventListener('deviceorientation', deviceOrientationHandler);
       }
@@ -285,6 +291,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-glare" />
           <div className="pc-icon-background"></div>
           <div className="pc-content pc-avatar-content">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="avatar"
               src={avatarUrl}
@@ -299,6 +306,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
               <div className="pc-user-info">
                 <div className="pc-user-details">
                   <div className="pc-mini-avatar">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={miniAvatarUrl || avatarUrl}
                       alt={`${name || 'User'} mini avatar`}
