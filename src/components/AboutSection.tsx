@@ -11,29 +11,56 @@ export function AboutSection() {
             Sobre <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Nosotros</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            Conoce al desarrollador detrás de los proyectos
+            Conoce al equipo detrás de los proyectos
           </p>
         </div>
         
-        <div className="flex justify-center items-center">
-          <div className="w-full max-w-sm sm:max-w-md px-2 sm:px-0">
-            <ProfileCard
-              name="Roberto C. Escalera"
-              title="Software Engineer"
-              handle="roberto8695"
-              status="Disponible"
-              contactText="Contáctame"
-              avatarUrl="/img-about/menew.webp"
-              miniAvatarUrl="/img-about/menew.webp"
-              showUserInfo={true}
-              enableTilt={true}
-              enableMobileTilt={false}
-              className="w-full"
-              onContactClick={() => {
-                // Aquí puedes agregar la lógica para contacto
-                window.open('mailto:roberto@tegrity-soft.com', '_blank');
-              }}
-            />
+        {/* Grid de 2 columnas */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
+          {/* ProfileCard 1 */}
+          <div className="flex justify-center items-center">
+            <div className="w-full max-w-sm sm:max-w-md px-2 sm:px-0">
+              <ProfileCard
+                name="Elías C. Coca Rojas"
+                title="Software Engineer"
+                handle="roberto8695"
+                status="Disponible"
+                contactText="Contáctame"
+                avatarUrl="/img-about/menew.webp"
+                miniAvatarUrl="/img-about/menew.webp"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                className="w-full"
+                onContactClick={() => {
+                  // Aquí puedes agregar la lógica para contacto
+                  window.open('mailto:roberto@tegrity-soft.com', '_blank');
+                }}
+              />
+            </div>
+          </div>
+
+          {/* ProfileCard 2 */}
+          <div className="flex justify-center items-center">
+            <div className="w-full max-w-sm sm:max-w-md px-2 sm:px-0">
+              <ProfileCard
+                name="Roberto C. Escalera"
+                title="Software Engineer"
+                handle="roberto8695"
+                status="Disponible"
+                contactText="Contáctame"
+                avatarUrl="/img-about/menew.webp"
+                miniAvatarUrl="/img-about/menew.webp"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                className="w-full"
+                onContactClick={() => {
+                  // Aquí puedes agregar la lógica para contacto
+                  window.open('mailto:roberto@tegrity-soft.com', '_blank');
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
