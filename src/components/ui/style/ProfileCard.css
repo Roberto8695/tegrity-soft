@@ -307,7 +307,7 @@
   opacity: calc(1.75 - var(--pointer-from-center));
 }
 
-@media screen {
+@media screen and (max-width: 768px) {
   .pc-avatar-content .avatar {
  
   max-width: 320px;

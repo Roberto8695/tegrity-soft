@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="min-h-screen h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md pt-24 sm:pt-20 md:pt-16">
+    <div className=" h-screen relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md pt-62 sm:pt-20 md:pt-16">
       <div className="w-full absolute inset-0 h-full">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -19,7 +19,7 @@ export function HeroSection() {
         />
       </div>
       <div className="mt-0 sm:mt-4 md:mt-12 lg:mt-16 relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col items-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center text-white mb-4 sm:mb-6 font-bebas leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-center text-white mb-4 sm:mb-6 font-bebas leading-tight">
            Creamos sitios web increíbles <br className="hidden sm:block" /> a una <Cover>velocidad increíble</Cover>
         </h1>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 text-center max-w-2xl mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4">
