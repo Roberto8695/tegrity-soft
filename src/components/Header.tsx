@@ -69,8 +69,8 @@ const Header = () => {
               Proyectos
               <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
-            <Link href="/tecnologias" className={navLinkClasses}>
-              Tecnologías
+            <Link href="#nosotros" className={navLinkClasses}>
+              Nosotros
               <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-indigo-400 transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </Link>
             <Link href="/contacto" className={navLinkClasses}>

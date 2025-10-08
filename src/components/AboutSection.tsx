@@ -4,7 +4,7 @@ import ProfileCard from './ProfileCard';
 
 export function AboutSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-slate-900 relative min-h-screen flex items-center justify-center">
+    <section id='nosotros' className="py-12 sm:py-16 md:py-20 bg-slate-900 relative min-h-screen flex items-center justify-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
