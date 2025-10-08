@@ -16,22 +16,45 @@ export function AboutSection() {
         </div>
         
         {/* Grid de 2 columnas */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
           {/* ProfileCard 1 */}
           <div className="flex justify-center items-center">
             <div className="w-full max-w-sm sm:max-w-md px-2 sm:px-0">
               <ProfileCard
-                name="Elías C. Coca Rojas"
+                name="Brayan R. Apaza"
                 title="Software Engineer"
-                handle="roberto8695"
+                handle="brayanAplm"
                 status="Disponible"
                 contactText="Contáctame"
-                avatarUrl="/img-about/menew.webp"
-                miniAvatarUrl="/img-about/menew.webp"
+                avatarUrl="/img-about/rolando.webp"
+                miniAvatarUrl="/img-about/rolando.webp"
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
                 className="w-full"
+                onContactClick={() => {
+                  // Aquí puedes agregar la lógica para contacto
+                  window.open('mailto:roberto@tegrity-soft.com', '_blank');
+                }}
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center">
+            <div className="w-full max-w-sm sm:max-w-md px-2 sm:px-0">
+              <ProfileCard
+              
+                name="Elias C. Coca Rojas"
+                title="Software Engineer"
+                handle="eliaswtf"
+                status="Disponible"
+                contactText="Contáctame"
+                avatarUrl="/img-about/eli.webp"
+                miniAvatarUrl="/img-about/eli.webp"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                className="w-full "
                 onContactClick={() => {
                   // Aquí puedes agregar la lógica para contacto
                   window.open('mailto:roberto@tegrity-soft.com', '_blank');

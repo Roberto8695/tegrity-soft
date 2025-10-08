@@ -22,9 +22,7 @@ export function ServiceSection() {
               <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 BÁSICO
               </h3>
-              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
-                $499
-              </div>
+              
               <p className="text-gray-400 text-xs sm:text-sm">Perfecto para empezar</p>
             </div>
             
@@ -55,9 +53,7 @@ export function ServiceSection() {
               <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 PROFESIONAL
               </h3>
-              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
-                $899
-              </div>
+             
               <p className="text-gray-400 text-xs sm:text-sm">Para negocios en crecimiento</p>
             </div>
             
@@ -86,9 +82,7 @@ export function ServiceSection() {
               <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
                 ENTERPRISE
               </h3>
-              <div className="text-3xl sm:text-4xl font-bold text-indigo-400 mb-2">
-                $1,499
-              </div>
+              
               <p className="text-gray-400 text-xs sm:text-sm">Solución completa</p>
             </div>
             
