@@ -2,7 +2,7 @@ export interface Proyecto {
   id: number;
   titulo: string;
   descripcion: string;
-  link: string;
+  link?: string;
   imagen: string;
   tecnologias?: string[];
   categoria?: string;
@@ -18,7 +18,7 @@ export const proyectos: Proyecto[] = [
     imagen: "/img-projects/chequeatuvoto.webp",
     tecnologias: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     categoria: "Información Pública",
-    fechaCreacion: "2024"
+    fechaCreacion: "2024",
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const proyectos: Proyecto[] = [
     imagen: "/img-projects/coalicion.webp",
     tecnologias: ["Next.js", "React", "Vercel", "CSS3"],
     categoria: "Plataforma Social",
-    fechaCreacion: "2024"
+    fechaCreacion: "2024",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const proyectos: Proyecto[] = [
     imagen: "/img-projects/chiptuning.webp",
     tecnologias: ["E-commerce", "JavaScript", "PHP", "MySQL"],
     categoria: "E-commerce",
-    fechaCreacion: "2023"
+    fechaCreacion: "2023",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ export const proyectos: Proyecto[] = [
     imagen: "/img-projects/electrocorp.webp",
     tecnologias: ["E-commerce", "React", "Node.js", "MongoDB"],
     categoria: "E-commerce",
-    fechaCreacion: "2023"
+    fechaCreacion: "2023",
   },
   {
     id: 5,
@@ -58,33 +58,45 @@ export const proyectos: Proyecto[] = [
     imagen: "/img-projects/cjptruckin.webp",
     tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     categoria: "Landing Page",
-    fechaCreacion: "2024"
+    fechaCreacion: "2024",
   },
-   {
+  {
     id: 6,
-    titulo: "Alcaldia municipal de Colcapirhua",
-    descripcion: "Página de servicios municipales de Colcapirhua.",
-    link: "https://apprueba.colcapirhua.gob.bo/",
-    imagen: "/img-projects/colcapirhua.webp",
+    titulo: "Alcaldía Municipal de Colcapirhua",
+    descripcion: "Portal oficial de servicios digitales, trámites y gaceta municipal de Colcapirhua.",
+    link: "https://www.colcapirhua.gob.bo/",
+    imagen: "/img-projects/colcapirhua.webp?v=2",
     tecnologias: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    categoria: "Landing Page",
-    fechaCreacion: "2024"
-  }
+    categoria: "Información Pública",
+    fechaCreacion: "2026",
+  },
+  {
+    id: 7,
+    titulo: "Crisoy",
+    descripcion: "Catálogo web y sistema de pedidos por paquetes de aceite de soya fortificado en Cochabamba.",
+    link: "https://crisoy-web.vercel.app/",
+    imagen: "/img-projects/crisoy.webp",
+    tecnologias: ["E-commerce", "Catálogo Web", "Pedidos Online", "Responsive Design"],
+    categoria: "E-commerce",
+    fechaCreacion: "2026",
+  },
 ];
 
 // Función helper para obtener proyectos por categoría
 export const getProyectosPorCategoria = (categoria: string): Proyecto[] => {
-  return proyectos.filter(proyecto => proyecto.categoria === categoria);
+  return proyectos.filter((proyecto) => proyecto.categoria === categoria);
 };
 
 // Función helper para obtener proyecto por ID
 export const getProyectoPorId = (id: number): Proyecto | undefined => {
-  return proyectos.find(proyecto => proyecto.id === id);
+  return proyectos.find((proyecto) => proyecto.id === id);
 };
 
 // Función helper para obtener todas las categorías únicas
 export const getCategorias = (): string[] => {
-  const categorias = proyectos.map(proyecto => proyecto.categoria).filter(Boolean) as string[];
+  const categorias = proyectos
+    .map((proyecto) => proyecto.categoria)
+    .filter(Boolean) as string[];
   return [...new Set(categorias)];
 };
 

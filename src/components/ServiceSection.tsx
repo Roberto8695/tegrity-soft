@@ -1,140 +1,248 @@
 "use client";
-import React from "react";
+
+import React, { useEffect, useRef } from "react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
+import { attachSectionScrollFX } from "@/lib/anime-section-fx";
+import { pulseStageFromElement } from "@/lib/stage-director";
+import {
+  buildQuoteWhatsappUrl,
+  QUOTE_WHATSAPP_DISPLAY,
+  SERVICE_TIERS,
+} from "@/data/studio";
+
+const WORKFLOW_STEPS = [
+  {
+    step: "01",
+    title: "Consulta inicial",
+    description: "Definimos objetivos, requerimientos y el paquete adecuado.",
+  },
+  {
+    step: "02",
+    title: "Propuesta y diseño",
+    description: "Presentamos arquitectura, interfaz y cronograma técnico.",
+  },
+  {
+    step: "03",
+    title: "Desarrollo iterativo",
+    description: "Avances revisables de forma continua sin cajas negras.",
+  },
+  {
+    step: "04",
+    title: "Despliegue y garantía",
+    description: "Pruebas, puesta en producción, capacitación y 30 días de garantía.",
+  },
+];
 
 export function ServiceSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    return attachSectionScrollFX({
+      root: sectionRef.current,
+      traceSelector: "[data-service-trace]",
+      staggerTargets: [
+        {
+          selector: "[data-service-card]",
+          containerSelector: "[data-services-grid]",
+          delayStep: 110,
+          from: "first",
+        },
+        {
+          selector: "[data-workflow-step]",
+          containerSelector: "[data-workflow-strip]",
+          delayStep: 80,
+          from: "first",
+        },
+      ],
+    });
+  }, []);
+
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-slate-950 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
-            Nuestros <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Paquetes</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            Soluciones digitales escalables que se adaptan a las necesidades de tu negocio
-          </p>
+    <section
+      id="servicios"
+      ref={sectionRef}
+      aria-labelledby="servicios-heading"
+      className="section-backdrop-primary section-contain relative border-b border-transparent py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div className="max-w-2xl">
+            <p className="mb-2 font-mono-tech text-xs tracking-[0.16em] text-[var(--accent)] uppercase">
+              [CH-02 // PAQUETES]
+            </p>
+            <h2
+              id="servicios-heading"
+              className="font-display text-3xl font-bold tracking-tight text-[var(--ink-primary)] sm:text-4xl"
+            >
+              Paquetes de desarrollo web
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-[var(--ink-secondary)] sm:text-lg">
+              Alcance definido, código limpio y soporte técnico real según la etapa
+              de tu proyecto.
+            </p>
+          </div>
+
+          <a
+            href={buildQuoteWhatsappUrl("Personalizado a medida")}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Cotizar proyecto a medida por WhatsApp al ${QUOTE_WHATSAPP_DISPLAY}`}
+            className="interactive-control inline-flex min-h-[44px] shrink-0 items-center gap-2 self-start rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-surface)] px-4 text-sm font-medium text-[var(--ink-primary)] hover:border-[var(--border-strong)] sm:self-auto"
+          >
+            <span>¿Proyecto a medida? Cotizar</span>
+            <ArrowUpRight className="h-4 w-4 text-[var(--accent)]" aria-hidden="true" />
+          </a>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-          {/* Paquete Básico */}
-          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8">
-            <div className="text-center mb-4 sm:mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
-                BÁSICO
-              </h3>
-              
-              <p className="text-gray-400 text-xs sm:text-sm">Perfecto para empezar</p>
-            </div>
-            
-            <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Incluye:</p>
-              <ul className="list-none space-y-2 sm:space-y-3">
-                <Step title="Sitio web responsivo (hasta 5 páginas)" />
-                <Step title="Diseño moderno y profesional" />
-                <Step title="Optimización SEO básica" />
-                <Step title="Formulario de contacto" />
-                <Step title="Integración redes sociales" />
-                <Step title="Hosting gratuito por 1 año" />
-                <Step title="Soporte técnico 3 meses" />
-              </ul>
-            </div>
-            
-            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
-              Elegir Básico
-            </button>
-          </CardSpotlight>
 
-          {/* Paquete Pro */}
-          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8 border-2 border-indigo-500">
-            <div className="text-center mb-4 sm:mb-6">
-              <div className="bg-indigo-500 text-white px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs sm:text-sm font-semibold mb-2 sm:mb-3 inline-block">
-                MÁS POPULAR
+        {/* Anime.js Scroll-Synced SVG Blueprint Trace */}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 1200 14"
+          fill="none"
+          preserveAspectRatio="none"
+          className="mt-8 h-3.5 w-full opacity-80"
+        >
+          <path
+            data-service-trace
+            d="M 0 7 H 340 L 352 2 H 580 L 592 12 H 920 L 932 7 H 1200"
+            stroke="var(--accent)"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Original Interactive CardSpotlight + Three.js DotMatrix Reveal Grid */}
+        <div
+          data-services-grid
+          className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-stretch"
+        >
+          {SERVICE_TIERS.map((tier, index) => {
+            const isHighlighted = Boolean(tier.highlighted);
+            const stageAccent = isHighlighted
+              ? "#34d399"
+              : index === 2
+                ? "#818cf8"
+                : "#38bdf8";
+            return (
+              <div
+                key={tier.id}
+                data-service-card
+                data-stage-accent={stageAccent}
+                className="flex"
+              >
+                <CardSpotlight
+                  className={`w-full ${
+                    isHighlighted
+                      ? "border-2 border-[var(--accent)]"
+                      : "border border-[var(--border-subtle)]"
+                  }`}
+                >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-[var(--ink-primary)]">
+                      {tier.name}
+                    </h3>
+                    <p className="mt-1 text-sm text-[var(--ink-muted)]">
+                      {tier.subtitle}
+                    </p>
+                  </div>
+                  {isHighlighted && (
+                    <span className="inline-flex shrink-0 items-center rounded-md bg-[var(--accent)] px-2.5 py-1 font-mono-tech text-xs font-bold text-[var(--accent-ink)]">
+                      Más popular
+                    </span>
+                  )}
+                </div>
+
+                <div className="mt-5 flex items-center justify-between gap-2 border-y border-white/10 py-3 font-mono-tech text-xs">
+                  <span className="text-[var(--accent)]">{tier.timeline}</span>
+                  <span className="text-[var(--ink-muted)] uppercase">
+                    Cotización a medida
+                  </span>
+                </div>
+
+                {tier.leadIn && (
+                  <p className="mt-4 text-sm font-semibold text-[var(--ink-primary)]">
+                    {tier.leadIn}
+                  </p>
+                )}
+
+                <ul
+                  className={`${tier.leadIn ? "mt-3" : "mt-5"} flex-1 space-y-3`}
+                >
+                  {tier.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 text-[15px] leading-snug text-[var(--ink-secondary)]"
+                    >
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent)]"
+                        aria-hidden="true"
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 pt-2">
+                  <a
+                    href={buildQuoteWhatsappUrl(tier.name)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${tier.ctaLabel} del plan ${tier.name} por WhatsApp al ${QUOTE_WHATSAPP_DISPLAY}`}
+                    onClick={(event) => {
+                      pulseStageFromElement(
+                        event.currentTarget,
+                        isHighlighted ? "#34d399" : "#38bdf8"
+                      );
+                    }}
+                    className={`interactive-control inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg px-5 text-base font-bold ${
+                      isHighlighted
+                        ? "bg-[var(--accent)] text-[var(--accent-ink)] hover:bg-[var(--accent-hover)]"
+                        : "border border-[var(--border-subtle)] bg-[var(--bg-surface-2)] text-[var(--ink-primary)] hover:border-[var(--border-strong)]"
+                    }`}
+                  >
+                    <span>{tier.ctaLabel}</span>
+                    <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  </a>
+                </div>
+              </CardSpotlight>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
-                PROFESIONAL
-              </h3>
-             
-              <p className="text-gray-400 text-xs sm:text-sm">Para negocios en crecimiento</p>
-            </div>
-            
-            <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Todo lo básico +</p>
-              <ul className="list-none space-y-2 sm:space-y-3">
-                <Step title="Sitio web hasta 10 páginas" />
-                <Step title="Panel de administración" />
-                <Step title="Blog integrado" />
-                <Step title="Galería de productos/servicios" />
-                <Step title="Optimización avanzada SEO" />
-                <Step title="Analytics y métricas" />
-                <Step title="Integración con WhatsApp" />
-                <Step title="Soporte técnico 6 meses" />
-              </ul>
-            </div>
-            
-            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
-              Elegir Pro
-            </button>
-          </CardSpotlight>
+            );
+          })}
+        </div>
 
-          {/* Paquete Enterprise */}
-          <CardSpotlight className="h-auto p-5 sm:p-6 md:p-8">
-            <div className="text-center mb-4 sm:mb-6">
-              <h3 className="text-xl sm:text-2xl font-bold text-white font-bebas mb-2">
-                ENTERPRISE
-              </h3>
-              
-              <p className="text-gray-400 text-xs sm:text-sm">Solución completa</p>
-            </div>
-            
-            <div className="text-neutral-200 relative z-20">
-              <p className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Todo lo pro +</p>
-              <ul className="list-none space-y-2 sm:space-y-3">
-                <Step title="Sitio web ilimitado" />
-                <Step title="E-commerce completo" />
-                <Step title="Sistema de usuarios" />
-                <Step title="API personalizada" />
-                <Step title="Integración con CRM" />
-                <Step title="Certificado SSL premium" />
-                <Step title="Backup automático diario" />
-                <Step title="Soporte técnico 1 año" />
-              </ul>
-            </div>
-            
-            <button className="w-full mt-4 sm:mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg transition-colors duration-300 font-bebas text-base sm:text-lg">
-              Elegir Enterprise
-            </button>
-          </CardSpotlight>
+        {/* Concise Engineering Process Strip */}
+        <div
+          data-workflow-strip
+          className="mt-14 rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-surface)]/95 p-6 backdrop-blur-sm sm:p-8"
+        >
+          <h3 className="font-display text-lg font-semibold text-[var(--ink-primary)]">
+            Proceso de trabajo
+          </h3>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {WORKFLOW_STEPS.map((item) => (
+              <div
+                key={item.step}
+                data-workflow-step
+                data-stage-accent="#38bdf8"
+                className="border-t border-[var(--border-subtle)] pt-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-5 first:border-0 first:pt-0 first:pl-0"
+              >
+                <span className="font-mono-tech text-xs font-bold text-[var(--accent)]">
+                  PASO {item.step}
+                </span>
+                <h4 className="mt-1.5 font-display text-base font-semibold text-[var(--ink-primary)]">
+                  {item.title}
+                </h4>
+                <p className="mt-1 text-sm leading-relaxed text-[var(--ink-muted)]">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
- 
-const Step = ({ title }: { title: string }) => {
-  return (
-    <li className="flex gap-2 sm:gap-3 items-start">
-      <CheckIcon />
-      <p className="text-gray-300 text-xs sm:text-sm">{title}</p>
-    </li>
-  );
-};
- 
-const CheckIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-4 w-4 sm:h-5 sm:w-5 text-indigo-400 mt-0.5 shrink-0"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path
-        d="M12 2c-.218 0 -.432 .002 -.642 .005l-.616 .017l-.299 .013l-.579 .034l-.553 .046c-4.785 .464 -6.732 2.411 -7.196 7.196l-.046 .553l-.034 .579c-.005 .098 -.01 .198 -.013 .299l-.017 .616l-.004 .318l-.001 .324c0 .218 .002 .432 .005 .642l.017 .616l.013 .299l.034 .579l.046 .553c.464 4.785 2.411 6.732 7.196 7.196l.553 .046l.579 .034c.098 .005 .198 .01 .299 .013l.616 .017l.642 .005l.642 -.005l.616 -.017l.299 -.013l.579 -.034l.553 -.046c4.785 -.464 6.732 -2.411 7.196 -7.196l.046 -.553l.034 -.579c.005 -.098 .01 -.198 .013 -.299l.017 -.616l.005 -.642l-.005 -.642l-.017 -.616l-.013 -.299l-.034 -.579l-.046 -.553c-.464 -4.785 -2.411 -6.732 -7.196 -7.196l-.553 -.046l-.579 -.034a28.058 28.058 0 0 0 -.299 -.013l-.616 -.017l-.318 -.004l-.324 -.001zm2.293 7.293a1 1 0 0 1 1.497 1.32l-.083 .094l-4 4a1 1 0 0 1 -1.32 .083l-.094 -.083l-2 -2a1 1 0 0 1 1.32 -1.497l.094 .083l1.293 1.292l3.293 -3.292z"
-        fill="currentColor"
-        strokeWidth="0"
-      />
-    </svg>
-  );
-};

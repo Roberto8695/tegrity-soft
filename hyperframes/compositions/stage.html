@@ -1,0 +1,293 @@
+<template>
+  <style>
+    :root {
+      --bg-void: #070a10;
+      --bg-panel: #0d131f;
+      --bg-card: #131c2e;
+      --ink: #eef2f7;
+      --ink-muted: #93a1b8;
+      --accent: #38bdf8;
+      --accent-dim: rgba(56, 189, 248, 0.16);
+      --ok: #34d399;
+      --border: rgba(148, 163, 184, 0.18);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #root {
+      position: absolute; inset: 0; overflow: hidden;
+      background: var(--bg-void); color: var(--ink);
+      font-family: "Inter", sans-serif; -webkit-font-smoothing: antialiased;
+    }
+    .mono { font-family: "JetBrains Mono", monospace; font-variant-numeric: tabular-nums; }
+    .draft-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(to right, rgba(148,163,184,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148,163,184,0.05) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .stage-shell {
+      position: absolute; inset: 40px; border-radius: 20px;
+      background: var(--bg-panel); border: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .stage-topbar {
+      height: 54px; padding: 0 26px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--border); background: #0c121e;
+    }
+    .topbar-left { display: flex; align-items: center; gap: 14px; }
+    .window-dots { display: flex; gap: 8px; }
+    .window-dots span { width: 10px; height: 10px; border-radius: 999px; background: rgba(148,163,184,0.35); }
+    .window-dots span:first-child { background: var(--accent); }
+    .topbar-path { font-size: 13px; color: var(--ink-muted); }
+    .topbar-status {
+      display: inline-flex; align-items: center; gap: 8px; padding: 5px 13px;
+      border-radius: 999px; border: 1px solid rgba(52,211,153,0.34);
+      background: rgba(52,211,153,0.1); color: var(--ok); font-size: 12px; font-weight: 500;
+    }
+    .status-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--ok); }
+    .stage-body {
+      position: relative; flex: 1; padding: 28px;
+      display: grid; grid-template-columns: 410px 1fr; gap: 26px;
+    }
+    .pipeline-col { display: flex; flex-direction: column; gap: 14px; justify-content: space-between; }
+    .panel-title { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-muted); }
+    .pipe-card {
+      background: var(--bg-card); border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 14px; padding: 17px 20px;
+    }
+    .pipe-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+    .pipe-label { font-size: 17px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+    .pipe-tag { font-size: 12px; padding: 3px 9px; border-radius: 6px; background: var(--accent-dim); color: var(--accent); }
+    .pipe-desc { font-size: 14px; line-height: 1.45; color: var(--ink-muted); }
+    .trace-rail { margin-top: 12px; height: 4px; width: 100%; border-radius: 999px; background: rgba(148,163,184,0.14); overflow: hidden; }
+    .trace-fill { height: 100%; width: 100%; border-radius: 999px; background: var(--accent); transform-origin: left center; }
+    .telemetry-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      background: #090e17; border: 1px solid var(--border); border-radius: 14px; padding: 15px 16px;
+    }
+    .metric-box { display: flex; flex-direction: column; gap: 4px; }
+    .metric-num { font-size: 22px; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+    .metric-num.ok { color: var(--ok); }
+    .metric-cap { font-size: 12px; color: var(--ink-muted); }
+    .preview-col {
+      position: relative; background: #080c14; border: 1px solid var(--border);
+      border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;
+    }
+    .preview-toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .bp-pills { display: flex; gap: 8px; }
+    .bp-pill {
+      font-size: 13px; padding: 6px 12px; border-radius: 8px;
+      border: 1px solid rgba(148,163,184,0.18); color: #93a1b8; background: #0d131f;
+    }
+    .preview-canvas { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; }
+    .device-shell {
+      position: relative; width: 100%; height: 384px; background: var(--bg-panel);
+      border: 1px solid rgba(56,189,248,0.34); border-radius: 14px; padding: 22px;
+      display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;
+    }
+    .mock-nav { display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .mock-brand { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--ink); }
+    .mock-mark {
+      width: 26px; height: 26px; border-radius: 6px; background: var(--accent);
+      color: #041320; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700;
+    }
+    .mock-links { display: flex; gap: 16px; font-size: 12px; color: var(--ink-muted); }
+    .mock-grid { display: grid; grid-template-columns: 1.28fr 1fr; gap: 16px; align-items: stretch; margin-top: 16px; flex: 1; }
+    .mock-hero-panel {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 20px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .mock-kicker { font-size: 11px; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; }
+    .mock-headline { font-size: 22px; font-weight: 700; line-height: 1.22; letter-spacing: -0.025em; color: var(--ink); margin-top: 8px; }
+    .mock-bars { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+    .mock-line { height: 8px; border-radius: 4px; background: rgba(148,163,184,0.25); }
+    .mock-line.short { width: 68%; }
+    .mock-cta-row { display: flex; gap: 10px; margin-top: 16px; }
+    .mock-btn-primary { padding: 8px 14px; border-radius: 7px; background: var(--accent); color: #041320; font-size: 12px; font-weight: 700; }
+    .mock-btn-ghost { padding: 8px 14px; border-radius: 7px; border: 1px solid var(--border); color: var(--ink); font-size: 12px; font-weight: 500; }
+    .mock-modules { display: flex; flex-direction: column; gap: 12px; }
+    .mock-mod {
+      flex: 1; background: var(--bg-card); border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .mod-head { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--ink-muted); letter-spacing: 0.06em; }
+    .mod-val { font-size: 18px; font-weight: 700; color: var(--ink); }
+    .mod-sub { font-size: 12px; color: var(--ink-muted); }
+    .preview-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 14px; border-top: 1px solid var(--border); margin-top: 14px; font-size: 13px; color: var(--ink-muted);
+    }
+    .scan-highlight {
+      position: absolute; top: 0; bottom: 0; width: 150px;
+      background: linear-gradient(90deg, rgba(56,189,248,0) 0%, rgba(56,189,248,0.11) 50%, rgba(56,189,248,0) 100%);
+      pointer-events: none;
+    }
+  </style>
+
+  <div id="root" data-composition-id="stage" data-width="1280" data-height="720">
+    <div class="draft-grid" data-layout-ignore></div>
+
+    <div class="stage-shell" id="stage-shell">
+      <div class="stage-topbar">
+        <div class="topbar-left">
+          <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="topbar-path mono">tegrity-soft / arquitectura-web.tsx</span>
+        </div>
+        <div class="topbar-status mono" id="deploy-pill">
+          <span class="status-dot"></span>
+          <span>NEXT.JS · TYPESCRIPT</span>
+        </div>
+      </div>
+
+      <div class="stage-body">
+        <div class="pipeline-col">
+          <p class="panel-title mono">Flujo de desarrollo</p>
+
+          <div class="pipe-card" id="card-arch">
+            <div class="pipe-head">
+              <span class="pipe-label">Arquitectura Web</span>
+              <span class="pipe-tag mono">Next.js 16</span>
+            </div>
+            <p class="pipe-desc">Páginas y aplicaciones tipadas con carga inicial rápida.</p>
+            <div class="trace-rail"><div class="trace-fill" id="trace-1"></div></div>
+          </div>
+
+          <div class="pipe-card" id="card-resp">
+            <div class="pipe-head">
+              <span class="pipe-label">Diseño Responsivo</span>
+              <span class="pipe-tag mono">320–1440px</span>
+            </div>
+            <p class="pipe-desc">Lectura clara, navegación intuitiva y contraste accesible.</p>
+            <div class="trace-rail"><div class="trace-fill" id="trace-2"></div></div>
+          </div>
+
+          <div class="pipe-card" id="card-perf">
+            <div class="pipe-head">
+              <span class="pipe-label">Movimiento Fluido</span>
+              <span class="pipe-tag mono">GSAP + FFmpeg</span>
+            </div>
+            <p class="pipe-desc">Interacciones ligeras optimizadas para móvil y escritorio.</p>
+            <div class="trace-rail"><div class="trace-fill" id="trace-3"></div></div>
+          </div>
+
+          <div class="telemetry-strip">
+            <div class="metric-box">
+              <span class="metric-num ok mono">6 casos</span>
+              <span class="metric-cap">En producción</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-num mono">30 días</span>
+              <span class="metric-cap">Garantía post-entrega</span>
+            </div>
+            <div class="metric-box">
+              <span class="metric-num mono">3 planes</span>
+              <span class="metric-cap">Desde $499 USD</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-col">
+          <div class="preview-toolbar">
+            <div class="bp-pills mono">
+              <span class="bp-pill" id="bp-desktop">1440px Desktop</span>
+              <span class="bp-pill" id="bp-tablet">768px Tablet</span>
+              <span class="bp-pill" id="bp-mobile">390px Móvil</span>
+            </div>
+            <span class="mono" style="font-size: 12px; color: #38bdf8">build: verified</span>
+          </div>
+
+          <div class="preview-canvas">
+            <div class="device-shell" id="device-shell">
+              <div class="scan-highlight" id="scan-beam" data-layout-ignore></div>
+              <div class="mock-nav">
+                <div class="mock-brand">
+                  <span class="mock-mark mono">&lt;/&gt;</span>
+                  <span>Tegrity-Soft</span>
+                </div>
+                <div class="mock-links mono">
+                  <span>Servicios</span><span>Proyectos</span><span>Contacto</span>
+                </div>
+              </div>
+
+              <div class="mock-grid">
+                <div class="mock-hero-panel" id="mock-hero">
+                  <div>
+                    <span class="mock-kicker mono">INGENIERÍA WEB</span>
+                    <h2 class="mock-headline">Sitios y software listos para escalar.</h2>
+                    <div class="mock-bars"><div class="mock-line"></div><div class="mock-line short"></div></div>
+                  </div>
+                  <div class="mock-cta-row">
+                    <span class="mock-btn-primary">Solicitar proyecto</span>
+                    <span class="mock-btn-ghost">Ver proyectos</span>
+                  </div>
+                </div>
+
+                <div class="mock-modules">
+                  <div class="mock-mod" id="mod-a">
+                    <div class="mod-head mono"><span>ENTREGA BASE</span><span style="color: #34d399">2–3 SEM</span></div>
+                    <div class="mod-val">Sitio web responsivo</div>
+                    <div class="mod-sub mono">SEO técnico + SSL</div>
+                  </div>
+                  <div class="mock-mod" id="mod-b">
+                    <div class="mod-head mono"><span>STACK PRINCIPAL</span><span style="color: #38bdf8">TS</span></div>
+                    <div class="mod-val">React · Next.js · Node</div>
+                    <div class="mod-sub mono">PostgreSQL / MongoDB</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-footer mono">
+            <span>Bolivia · EEUU</span>
+            <span>Soporte continuo 3–12 meses</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#scan-beam", { x: -170, opacity: 0.85 }, { x: 760, opacity: 0, duration: 2.0, ease: "power2.inOut" }, 0.25);
+
+    tl.fromTo("#trace-1", { scaleX: 0.15 }, { scaleX: 1, duration: 1.4, ease: "expo.out" }, 0)
+      .fromTo("#trace-1", { scaleX: 1 }, { scaleX: 0.15, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 7.4);
+
+    tl.fromTo("#trace-2", { scaleX: 0.1 }, { scaleX: 1, duration: 1.4, ease: "expo.out" }, 2.0)
+      .fromTo("#trace-2", { scaleX: 1 }, { scaleX: 0.1, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 7.4);
+
+    tl.fromTo("#trace-3", { scaleX: 0.1 }, { scaleX: 1, duration: 1.4, ease: "expo.out" }, 4.2)
+      .fromTo("#trace-3", { scaleX: 1 }, { scaleX: 0.1, duration: 0.5, ease: "power2.inOut", immediateRender: false }, 7.4);
+
+    tl.fromTo("#card-arch", { borderColor: "rgba(56,189,248,0.55)" }, { borderColor: "rgba(148,163,184,0.18)", duration: 0.35 }, 2.0)
+      .fromTo("#card-arch", { borderColor: "rgba(148,163,184,0.18)" }, { borderColor: "rgba(56,189,248,0.55)", duration: 0.5, immediateRender: false }, 7.3);
+
+    tl.fromTo("#card-resp", { borderColor: "rgba(148,163,184,0.18)" }, { borderColor: "rgba(56,189,248,0.55)", duration: 0.35 }, 2.0)
+      .fromTo("#card-resp", { borderColor: "rgba(56,189,248,0.55)" }, { borderColor: "rgba(148,163,184,0.18)", duration: 0.35, immediateRender: false }, 4.2);
+
+    tl.fromTo("#card-perf", { borderColor: "rgba(148,163,184,0.18)" }, { borderColor: "rgba(56,189,248,0.55)", duration: 0.35 }, 4.2)
+      .fromTo("#card-perf", { borderColor: "rgba(56,189,248,0.55)" }, { borderColor: "rgba(148,163,184,0.18)", duration: 0.5, immediateRender: false }, 7.3);
+
+    tl.fromTo("#bp-desktop", { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)" }, { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)", duration: 0.25 }, 2.1)
+      .fromTo("#bp-desktop", { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)" }, { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)", duration: 0.4, immediateRender: false }, 7.3);
+
+    tl.fromTo("#bp-tablet", { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)" }, { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)", duration: 0.25 }, 2.1)
+      .fromTo("#bp-tablet", { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)" }, { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)", duration: 0.25, immediateRender: false }, 4.3);
+
+    tl.fromTo("#bp-mobile", { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)" }, { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)", duration: 0.25 }, 4.3)
+      .fromTo("#bp-mobile", { backgroundColor: "rgba(56,189,248,0.16)", color: "#38bdf8", borderColor: "rgba(56,189,248,0.5)" }, { backgroundColor: "#0d131f", color: "#93a1b8", borderColor: "rgba(148,163,184,0.18)", duration: 0.4, immediateRender: false }, 7.3);
+
+    // Clean optical focus elevation on modules without stretching/squashing font glyphs
+    tl.fromTo("#mock-hero", { y: 0, borderColor: "rgba(148,163,184,0.18)" }, { y: -4, borderColor: "rgba(56,189,248,0.5)", duration: 0.45, ease: "expo.out" }, 1.2)
+      .fromTo("#mock-hero", { y: -4, borderColor: "rgba(56,189,248,0.5)" }, { y: 0, borderColor: "rgba(148,163,184,0.18)", duration: 0.45, ease: "power2.out", immediateRender: false }, 3.4);
+
+    tl.fromTo("#mod-a", { y: 0, borderColor: "rgba(148,163,184,0.18)" }, { y: -4, borderColor: "rgba(52,211,153,0.52)", duration: 0.45, ease: "expo.out" }, 2.6)
+      .fromTo("#mod-a", { y: -4, borderColor: "rgba(52,211,153,0.52)" }, { y: 0, borderColor: "rgba(148,163,184,0.18)", duration: 0.45, ease: "power2.out", immediateRender: false }, 5.0);
+
+    tl.fromTo("#mod-b", { y: 0, borderColor: "rgba(148,163,184,0.18)" }, { y: -4, borderColor: "rgba(56,189,248,0.52)", duration: 0.45, ease: "expo.out" }, 4.5)
+      .fromTo("#mod-b", { y: -4, borderColor: "rgba(56,189,248,0.52)" }, { y: 0, borderColor: "rgba(148,163,184,0.18)", duration: 0.45, ease: "power2.inOut", immediateRender: false }, 7.1);
+
+    window.__timelines["stage"] = tl;
+    tl.seek(0);
+  </script>
+</template>
