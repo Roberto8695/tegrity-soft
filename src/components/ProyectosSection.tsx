@@ -1,69 +1,209 @@
 "use client";
-import React from "react";
-import { PinContainer } from "./ui/3d-pin";
-import { proyectos, Proyecto } from "@/data/proyectos";
+
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { animate, stagger } from "animejs";
+import { ExternalLink } from "lucide-react";
+import { PinContainer } from "@/components/ui/3d-pin";
+import { proyectos, getCategorias, type Proyecto } from "@/data/proyectos";
+import { attachSectionScrollFX } from "@/lib/anime-section-fx";
+import { pulseStageFromElement } from "@/lib/stage-director";
 
-export function ProyectosSection() {
+function ProyectoPinItem({ proyecto }: { proyecto: Proyecto }) {
+  const pinTitle = proyecto.link ?? `${proyecto.titulo} · ${proyecto.categoria ?? "Proyecto"}`;
+
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 font-bebas">
-            Nuestros <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Proyectos</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-            Descubre algunos de nuestros trabajos más destacados y exitosos
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-16 lg:gap-18 justify-items-center">
-          {proyectos.map((proyecto) => (
-            <ProyectoCard key={proyecto.id} proyecto={proyecto} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-interface ProyectoCardProps {
-  proyecto: Proyecto;
-}
-
-const ProyectoCard: React.FC<ProyectoCardProps> = ({ proyecto }) => {
-  return (
-    <div className="w-full max-w-sm mx-auto">
-      <PinContainer
-        title={proyecto.link}
-        href={proyecto.link}
-      >
-        <div className="flex basis-full flex-col p-3 sm:p-4 tracking-tight text-slate-100/50 w-[18rem] sm:w-[20rem] h-[18rem] sm:h-[20rem]">
+    <div
+      data-project-card
+      data-stage-accent="#38bdf8"
+      className="flex w-full justify-center"
+    >
+      <PinContainer title={pinTitle} href={proyecto.link}>
+        <div className="flex h-[19rem] w-[16.5rem] flex-col tracking-tight text-slate-100/70 sm:h-[20.5rem] sm:w-[20rem]">
           {/* Imagen del proyecto */}
-          <div className="relative w-full h-32 sm:h-40 mb-3 sm:mb-4 rounded-lg overflow-hidden">
+          <div className="relative mb-3.5 aspect-[16/10] w-full overflow-hidden rounded-lg border border-white/10 bg-[#0b0d12]">
             <Image
               src={proyecto.imagen}
-              alt={proyecto.titulo}
+              alt={`Vista previa del proyecto ${proyecto.titulo}`}
               fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={75}
+              className="object-cover object-top"
+              sizes="(max-width: 640px) 264px, 320px"
             />
           </div>
-          
+
           {/* Contenido del proyecto */}
-          <div className="flex flex-col flex-1">
-            <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base sm:text-lg text-slate-100 font-bebas">
+          <div className="flex flex-1 flex-col">
+            <div className="flex items-center justify-between gap-2 font-mono-tech text-[11px] text-[var(--ink-muted)]">
+              <span>{proyecto.categoria ?? "Proyecto web"}</span>
+              {proyecto.fechaCreacion && (
+                <span className="tabular-nums">{proyecto.fechaCreacion}</span>
+              )}
+            </div>
+
+            <h3 className="mt-1 font-display text-lg font-bold text-[var(--ink-primary)]">
               {proyecto.titulo}
             </h3>
-            
-            <div className="text-xs sm:text-sm !m-0 !p-0 font-normal">
-              <span className="text-slate-400">
-                {proyecto.descripcion}
-              </span>
+
+            <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-[var(--ink-secondary)]">
+              {proyecto.descripcion}
+            </p>
+
+            <div className="mt-auto flex items-center justify-between gap-2 pt-3 font-mono-tech text-xs text-[var(--accent)]">
+              <span>{proyecto.link ? "Visitar sitio" : "En producción"}</span>
+              {proyecto.link && (
+                <ExternalLink className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              )}
             </div>
           </div>
         </div>
       </PinContainer>
     </div>
   );
-};
+}
+
+export function ProyectosSection() {
+  const [selectedCategoria, setSelectedCategoria] = useState<string>("Todos");
+  const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const hasInteractedRef = useRef(false);
+
+  const categorias = useMemo(() => ["Todos", ...getCategorias()], []);
+
+  const proyectosFiltrados = useMemo(() => {
+    if (selectedCategoria === "Todos") {
+      return proyectos;
+    }
+    return proyectos.filter((item) => item.categoria === selectedCategoria);
+  }, [selectedCategoria]);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    return attachSectionScrollFX({
+      root: sectionRef.current,
+      traceSelector: "[data-projects-trace]",
+      staggerTargets: [
+        {
+          selector: "[data-project-card]",
+          containerSelector: "[data-projects-grid]",
+          delayStep: 80,
+          from: "first",
+        },
+      ],
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!hasInteractedRef.current || !gridRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const cards = gridRef.current.querySelectorAll("[data-project-card]");
+    if (cards.length === 0) return;
+
+    const anim = animate(cards, {
+      y: [16, 0],
+      scale: [0.96, 1],
+      opacity: [0.35, 1],
+      duration: 420,
+      delay: stagger(65, { from: "first" }),
+      ease: "outExpo",
+    });
+
+    return () => {
+      anim.revert();
+    };
+  }, [selectedCategoria]);
+
+  const handleSelectCategoria = (categoria: string, triggerEl: HTMLElement) => {
+    hasInteractedRef.current = true;
+    pulseStageFromElement(triggerEl, "#38bdf8");
+    setSelectedCategoria(categoria);
+  };
+
+  return (
+    <section
+      id="proyectos"
+      ref={sectionRef}
+      aria-labelledby="proyectos-heading"
+      className="section-backdrop-primary section-contain relative border-b border-transparent py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="max-w-2xl">
+            <p className="mb-2 font-mono-tech text-xs tracking-[0.16em] text-[var(--accent)] uppercase">
+              [CH-03 // PORTAFOLIO]
+            </p>
+            <h2
+              id="proyectos-heading"
+              className="font-display text-3xl font-bold tracking-tight text-[var(--ink-primary)] sm:text-4xl"
+            >
+              Proyectos en producción
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-[var(--ink-secondary)] sm:text-lg">
+              Sitios informativos, tiendas en línea y plataformas cívicas desplegadas
+              para clientes en Bolivia y Estados Unidos.
+            </p>
+          </div>
+
+          <p className="font-mono-tech text-sm text-[var(--ink-muted)] tabular-nums">
+            Mostrando {proyectosFiltrados.length} de {proyectos.length} proyectos
+          </p>
+        </div>
+
+        {/* Category Filter Tabs */}
+        <div
+          role="group"
+          aria-label="Filtrar proyectos por categoría"
+          className="mt-8 flex flex-wrap gap-2.5"
+        >
+          {categorias.map((categoria) => {
+            const isActive = selectedCategoria === categoria;
+            return (
+              <button
+                key={categoria}
+                type="button"
+                aria-pressed={isActive}
+                onClick={(event) => handleSelectCategoria(categoria, event.currentTarget)}
+                className={`interactive-control inline-flex min-h-[44px] items-center rounded-lg px-4 text-sm font-medium ${
+                  isActive
+                    ? "bg-[var(--accent)] font-bold text-[var(--accent-ink)]"
+                    : "border border-[var(--border-subtle)] bg-[var(--bg-surface)] text-[var(--ink-secondary)] hover:border-[var(--border-strong)] hover:text-[var(--ink-primary)]"
+                }`}
+              >
+                {categoria}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Anime.js Scroll-Synced SVG Underline Trace */}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 1200 12"
+          fill="none"
+          preserveAspectRatio="none"
+          className="mt-6 h-3 w-full opacity-75"
+        >
+          <path
+            data-projects-trace
+            d="M 0 6 H 260 L 270 11 H 740 L 750 2 H 1200"
+            stroke="var(--accent)"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Original 3D Pin Grid */}
+        <div
+          ref={gridRef}
+          data-projects-grid
+          className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {proyectosFiltrados.map((proyecto) => (
+            <ProyectoPinItem key={proyecto.id} proyecto={proyecto} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,137 @@
+# Tegrity-Soft — Contexto Completo para Motores de IA (llms-full.txt)
+
+> Tegrity-Soft es un estudio de ingeniería y desarrollo web con sede de operación para clientes en Cochabamba (Bolivia) y Estados Unidos. Diseña y construye sitios web rápidos, landing pages, tiendas e-commerce y software web a medida con Next.js, React, TypeScript y Tailwind CSS bajo cotización personalizada vía WhatsApp (+591 68538548), con hosting el primer año incluido y 30 días de garantía técnica post-lanzamiento.
+
+## 1. Datos de identidad y contacto
+
+- Marca: Tegrity-Soft
+- Web canónica: https://tegrity-soft.tech
+- Sitemap XML: https://tegrity-soft.tech/sitemap.xml
+- WhatsApp cotizaciones: +591 68538548 (https://wa.me/59168538548)
+- WhatsApp soporte / directo: +591 78452369 (https://wa.me/59178452369)
+- Correo electrónico: roberto@tegrity-soft.com
+- GitHub (Elias Coca): https://github.com/eliascoca85
+- LinkedIn (Mauricio Coca): https://www.linkedin.com/in/mauricio-coca85
+- GitHub (Roberto Escalera): https://github.com/roberto8695
+- LinkedIn (Roberto Escalera): https://linkedin.com/in/roberto-escalera
+- X (Twitter): https://twitter.com/roberto8695
+- Idioma principal: Español (`es`, `es_BO`)
+- Áreas atendidas: Cochabamba, Bolivia y Estados Unidos
+
+## 2. Propuesta de valor técnica
+
+- Arquitectura moderna con Next.js, TypeScript, React, Tailwind CSS, Node.js, PostgreSQL y MongoDB.
+- Enfoque en rendimiento real (LCP bajo, carga progresiva, diseño responsivo mobile-first desde 320px), accesibilidad (navegación por teclado, contraste AA) y posicionamiento SEO técnico desde el lanzamiento (HTML semántico, metadatos Open Graph/Twitter, URLs limpias, sitemap XML y Schema.org JSON-LD).
+- Todos los proyectos incluyen 30 días de garantía posteriores al lanzamiento para corregir cualquier incidencia técnica relacionada con la implementación acordada.
+
+## 3. Planes de servicio (a cotización por WhatsApp: +591 68538548)
+
+### Paquete Básico — Cotización a medida
+- Tiempo estimado de entrega: 2–3 semanas
+- Perfil: Ideal para empezar
+- Incluye:
+  - Sitio web responsivo (hasta 5 páginas)
+  - Diseño moderno y profesional
+  - Optimización SEO básica
+  - Formulario de contacto
+  - Integración con redes sociales
+  - Hosting gratuito por 1 año
+  - Soporte técnico por 3 meses
+
+### Paquete Profesional — Cotización a medida
+- Tiempo estimado de entrega: 3–6 semanas
+- Perfil: Para negocios en crecimiento
+- Incluye todo lo del plan Básico, más:
+  - Sitio web de hasta 10 páginas
+  - Panel de administración
+  - Blog integrado
+  - Galería de productos o servicios
+  - Optimización avanzada SEO
+  - Analytics y métricas
+  - Integración con WhatsApp
+  - Soporte técnico por 6 meses
+
+### Paquete Enterprise — Cotización a medida
+- Tiempo estimado de entrega: 1–3 meses
+- Perfil: Solución completa a medida
+- Incluye todo lo del plan Profesional, más:
+  - Sitio web sin límite de páginas
+  - E-commerce completo
+  - Sistema de usuarios
+  - API personalizada
+  - Integración con CRM
+  - Certificado SSL premium
+  - Backup automático diario
+  - Soporte técnico por 1 año
+
+## 4. Proceso de desarrollo en 4 etapas
+
+1. **Consulta inicial**: Definimos objetivos, requerimientos y el paquete adecuado.
+2. **Propuesta y diseño**: Presentamos arquitectura, interfaz y cronograma técnico.
+3. **Desarrollo iterativo**: Avances revisables de forma continua sin cajas negras.
+4. **Despliegue y garantía**: Pruebas en dispositivos, puesta en producción, capacitación y 30 días de garantía.
+
+## 5. Portafolio verificado
+
+1. **Chequeatuvoto** (2024) — Categoría: Información Pública
+   - URL: https://chequeatuvoto.chequeabolivia.bo/
+   - Descripción: Página de información sobre elecciones presidenciales Bolivia.
+   - Stack: React, Next.js, TypeScript, Tailwind CSS
+2. **Coalicion** (2024) — Categoría: Plataforma Social
+   - URL: https://coalicionv3.vercel.app/
+   - Descripción: Página para combatir la desinformación.
+   - Stack: Next.js, React, Vercel, CSS3
+3. **Chiptuningbo** (2023) — Categoría: E-commerce
+   - URL: https://chiptuningbo.com/
+   - Descripción: Ecommerce de ecutuning personalizados.
+   - Stack: E-commerce, JavaScript, PHP, MySQL
+4. **Electrocorp** (2023) — Categoría: E-commerce
+   - URL: https://electrocorp.com.bo
+   - Descripción: Ecommerce de herramientas de diagnóstico automotriz.
+   - Stack: E-commerce, React, Node.js, MongoDB
+5. **CJP Trucking** (2024) — Categoría: Landing Page
+   - URL: https://cjptrucking.us/
+   - Descripción: Página de aterrizaje de servicios de transporte en EEUU.
+   - Stack: HTML5, CSS3, JavaScript, Responsive Design
+6. **Alcaldía Municipal de Colcapirhua** (2026) — Categoría: Información Pública
+   - URL: https://www.colcapirhua.gob.bo/
+   - Descripción: Portal oficial de servicios digitales, trámites y gaceta municipal de Colcapirhua.
+   - Stack: HTML5, CSS3, JavaScript, Responsive Design
+7. **Crisoy** (2026) — Categoría: E-commerce
+   - URL: https://crisoy-web.vercel.app/
+   - Descripción: Catálogo web y sistema de pedidos por paquetes de aceite de soya fortificado en Cochabamba.
+   - Stack: E-commerce, Catálogo Web, Pedidos Online, Responsive Design
+
+## 6. Equipo de ingeniería
+
+- **Brayan R. Apaza** — Software Engineer (`@brayanAplm`)
+- **Elias C. Coca Rojas** — Software Engineer (`@eliascoca85` · GitHub: https://github.com/eliascoca85 · LinkedIn: https://www.linkedin.com/in/mauricio-coca85)
+- **Roberto C. Escalera** — Software Engineer (`@roberto8695` · GitHub: https://github.com/roberto8695 · LinkedIn: https://linkedin.com/in/roberto-escalera)
+
+## 7. Preguntas frecuentes (FAQ)
+
+- **¿Cuánto tiempo toma desarrollar un sitio web?**
+  El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede tomar entre 2 y 3 semanas, mientras que una aplicación web compleja toma de 2 a 3 meses. Entregamos un cronograma detallado tras revisar tus requisitos.
+- **¿Cuál es el costo de crear un sitio web?**
+  Preparamos cotizaciones personalizadas según el alcance, módulos e integraciones de tu proyecto en nuestros planes Básico, Profesional, Enterprise o desarrollo a medida. Puedes cotizar directamente por WhatsApp al +591 68538548.
+- **¿El sitio web será responsive (adaptable a móviles)?**
+  Sí. Todos nuestros proyectos se diseñan con enfoque mobile-first para funcionar con fluidez en teléfonos (desde 320px), tablets y pantallas de escritorio.
+- **¿Puedo actualizar el contenido de mi sitio web yo mismo?**
+  Sí. Implementamos paneles de administración personalizados o gestores de contenido para que puedas editar textos, imágenes y entradas sin conocimientos técnicos, junto con capacitación al finalizar.
+- **¿Qué incluye el mantenimiento del sitio web?**
+  Incluye actualizaciones de seguridad, copias de respaldo regulares, monitoreo de rendimiento, corrección de errores técnicos y soporte directo según el período de tu paquete.
+- **¿Mi sitio web estará optimizado para motores de búsqueda (SEO)?**
+  Sí. Todos los sitios incluyen estructura semántica HTML, metadatos completos, URLs limpias, sitemap XML, rendimiento optimizado y diseño responsivo desde el lanzamiento.
+- **¿Qué tecnologías utilizan para desarrollar sitios y aplicaciones?**
+  Trabajamos con tecnologías probadas como React, Next.js, TypeScript, Tailwind CSS, Node.js y bases de datos como PostgreSQL o MongoDB, eligiendo la arquitectura adecuada para cada caso.
+- **¿Proporcionan hosting y configuración de dominio?**
+  Sí. Te asesoramos en el registro del dominio y gestionamos el despliegue e infraestructura técnica de hosting, incluido durante el primer año en nuestros planes.
+- **¿Ofrecen garantía sobre el trabajo entregado?**
+  Sí. Todos los proyectos cuentan con 30 días de garantía posteriores al lanzamiento para corregir cualquier incidencia técnica sin costo adicional, además de soporte continuo según tu paquete.
+- **¿Cómo funciona el proceso de desarrollo?**
+  Trabajamos en etapas claras: 1) Consulta inicial y definición de requisitos, 2) Propuesta visual y arquitectura, 3) Desarrollo iterativo con revisiones, 4) Pruebas en dispositivos, y 5) Lanzamiento con capacitación.
+
+## 8. Privacidad y términos
+
+- **Política de privacidad (https://tegrity-soft.tech/privacidad)**: No utiliza rastreadores publicitarios ni perfiles de seguimiento invasivos. La información enviada por formulario, WhatsApp o correo se utiliza exclusivamente para elaborar propuestas técnicas y coordinar proyectos.
+- **Términos de servicio (https://tegrity-soft.tech/terminos)**: Los paquetes publicados sirven como referencia base de características y alcances técnicos; todo proyecto se cotiza y formaliza mediante propuesta detallada e incluye 30 días de garantía posterior al lanzamiento.

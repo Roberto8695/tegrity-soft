@@ -32,7 +32,7 @@
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;
-  touch-action: none;
+  touch-action: pan-y;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -298,7 +298,6 @@
 }
 
 .pc-avatar-content .avatar {
- 
   max-width: 380px;
   position: absolute;
   left: 50%;
@@ -309,15 +308,13 @@
 
 @media screen and (max-width: 768px) {
   .pc-avatar-content .avatar {
- 
-  max-width: 320px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) scale(1);
-  bottom: -150px;
-  opacity: calc(1.75 - var(--pointer-from-center));
-}
-
+    max-width: 320px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    bottom: -150px;
+    opacity: calc(1.75 - var(--pointer-from-center));
+  }
 }
 
 .pc-avatar-content::before {
@@ -396,21 +393,25 @@
 }
 
 .pc-contact-btn {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
-  padding: 8px 16px;
-  font-size: 14px;
+  padding: 8px 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(7, 10, 16, 0.45);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease;
   backdrop-filter: blur(10px);
 }
 
 .pc-contact-btn:hover {
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.45);
   transform: translateY(-1px);
-  transition: all 0.2s ease;
 }
 
 .pc-content {
@@ -430,7 +431,7 @@
 .pc-details {
   width: 100%;
   position: absolute;
-  top: 2.5em;
+  top: 2.2em;
   display: flex;
   flex-direction: column;
   padding: 0 1em;
@@ -439,27 +440,23 @@
 .pc-details h3 {
   font-weight: 600;
   margin: 0;
-  font-size: min(3.5vh, 2.5em);
-  margin: 0;
-  background-image: linear-gradient(to bottom, #fff, #6f6fbe);
+  font-size: min(3.5vh, 2.25em);
+  background-image: linear-gradient(to bottom, #fff, #94a3b8);
   background-size: 1em 1.5em;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
 }
 
-@media screen {
-  
-}
 .pc-details p {
   font-weight: 600;
   position: relative;
-  top: -12px;
+  top: -4px;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 15px;
   margin: 0 auto;
   width: min-content;
-  background-image: linear-gradient(to bottom, #fff, #4a4ac0);
+  background-image: linear-gradient(to bottom, #fff, #7dd3fc);
   background-size: 1em 1.5em;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -510,7 +507,7 @@
   }
 
   .pc-details h3 {
-    font-size: min(4vh, 2em);
+    font-size: min(4vh, 1.85em);
   }
 
   .pc-details p {
@@ -551,6 +548,7 @@
   .pc-card {
     height: 60svh;
     max-height: 380px;
+    max-width: 288px;
   }
 
   .pc-details {
@@ -558,12 +556,12 @@
   }
 
   .pc-details h3 {
-    font-size: min(3.5svh, 2em);
+    font-size: min(3.5svh, 1.75em);
   }
 
   .pc-details p {
     font-size: 12px;
-    top: -8px;
+    top: -4px;
   }
 
   .pc-user-info {
@@ -575,8 +573,8 @@
   }
 
   .pc-mini-avatar {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
 
   .pc-user-details {
@@ -588,55 +586,20 @@
   }
 
   .pc-status {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .pc-contact-btn {
-    padding: 5px 10px;
-    font-size: 10px;
+    padding: 6px 12px;
+    font-size: 11px;
     border-radius: 50px;
   }
 }
 
-@media (max-width: 320px) {
-  .pc-card {
-    height: 55svh;
-    max-height: 320px;
-  }
-
-  .pc-details h3 {
-    font-size: min(3svh, 1.5em);
-  }
-
-  .pc-details p {
-    font-size: 11px;
-  }
-
-  .pc-user-info {
-    padding: 6px 8px;
-    border-radius: 50px;
-  }
-
-  .pc-mini-avatar {
-    width: 20px;
-    height: 20px;
-  }
-
-  .pc-user-details {
-    gap: 6px;
-  }
-
-  .pc-handle {
-    font-size: 11px;
-  }
-
-  .pc-status {
-    font-size: 8px;
-  }
-
-  .pc-contact-btn {
-    padding: 4px 8px;
-    font-size: 9px;
-    border-radius: 50px;
+@media (prefers-reduced-motion: reduce) {
+  .pc-card,
+  .pc-shine,
+  .pc-icon-background {
+    animation: none !important;
   }
 }

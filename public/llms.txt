@@ -1,0 +1,56 @@
+# Tegrity-Soft
+
+> Estudio de ingeniería y desarrollo web a medida para empresas, comercios e instituciones en Bolivia (Cochabamba) y Estados Unidos. Creamos sitios rápidos, landing pages, plataformas e-commerce y aplicaciones escalables con Next.js, React y TypeScript bajo cotización personalizada, con 30 días de garantía técnica.
+
+## Información clave de la entidad
+
+- Nombre comercial: Tegrity-Soft
+- Sitio web oficial: https://tegrity-soft.tech
+- WhatsApp de cotizaciones: +591 68538548 (https://wa.me/59168538548)
+- WhatsApp adicional / soporte: +591 78452369 (https://wa.me/59178452369)
+- Correo de contacto: roberto@tegrity-soft.com
+- Cobertura geográfica: Cochabamba, Bolivia y Estados Unidos
+- Stack principal: Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL, MongoDB
+- Perfiles oficiales:
+  - GitHub (Elias Coca): https://github.com/eliascoca85
+  - LinkedIn (Mauricio Coca): https://www.linkedin.com/in/mauricio-coca85
+  - GitHub (Roberto Escalera): https://github.com/roberto8695
+  - LinkedIn (Roberto Escalera): https://linkedin.com/in/roberto-escalera
+  - X (Twitter): https://twitter.com/roberto8695
+
+## Páginas del sitio
+
+- [Inicio](https://tegrity-soft.tech/): Propuesta de valor, planes a cotización, portafolio, equipo, preguntas frecuentes y formulario de contacto.
+- [Servicios y paquetes](https://tegrity-soft.tech/#servicios): Planes Básico, Profesional y Enterprise con cotización directa por WhatsApp (+591 68538548) y flujo de trabajo en 4 etapas.
+- [Portafolio de proyectos](https://tegrity-soft.tech/#proyectos): Casos reales desplegados en Bolivia y Estados Unidos.
+- [Equipo de ingeniería](https://tegrity-soft.tech/#nosotros): Contacto directo con los ingenieros de software detrás de cada desarrollo.
+- [Preguntas frecuentes](https://tegrity-soft.tech/#faq): Tiempos de entrega, cotizaciones, mantenimiento, SEO, tecnologías y garantía.
+- [Contacto](https://tegrity-soft.tech/#contacto): Asistente de cotización directa por WhatsApp y correo electrónico.
+- [Política de Privacidad](https://tegrity-soft.tech/privacidad): Uso exclusivo comercial de datos enviados y ausencia de rastreadores publicitarios invasivos.
+- [Términos de Servicio](https://tegrity-soft.tech/terminos): Condiciones de alcance, plazos de entrega y garantía de 30 días.
+
+## Servicios y planes (a cotización)
+
+- **Básico (Entrega 2–3 semanas · Cotización por WhatsApp +591 68538548)**: Sitio web responsivo de hasta 5 páginas, optimización SEO básica, formulario de contacto, integración con redes sociales, hosting gratuito por 1 año y soporte técnico por 3 meses.
+- **Profesional (Entrega 3–6 semanas · Cotización por WhatsApp +591 68538548)**: Todo lo del plan Básico, hasta 10 páginas, panel de administración, blog integrado, galería de productos o servicios, optimización avanzada SEO, analytics y métricas, integración con WhatsApp y soporte técnico por 6 meses.
+- **Enterprise (Entrega 1–3 meses · Cotización por WhatsApp +591 68538548)**: Todo lo del plan Profesional, páginas ilimitadas, e-commerce completo, sistema de usuarios, API personalizada, integración con CRM, certificado SSL premium, backup automático diario y soporte técnico por 1 año.
+
+## Portafolio destacado
+
+- [Chequeatuvoto](https://chequeatuvoto.chequeabolivia.bo/) (2024 · Información Pública): Página de información sobre elecciones presidenciales Bolivia (React, Next.js, TypeScript, Tailwind CSS).
+- [Coalicion](https://coalicionv3.vercel.app/) (2024 · Plataforma Social): Página para combatir la desinformación (Next.js, React, Vercel, CSS3).
+- [Chiptuningbo](https://chiptuningbo.com/) (2023 · E-commerce): Ecommerce de ecutuning personalizados (E-commerce, JavaScript, PHP, MySQL).
+- [Electrocorp](https://electrocorp.com.bo) (2023 · E-commerce): Ecommerce de herramientas de diagnóstico automotriz (E-commerce, React, Node.js, MongoDB).
+- [CJP Trucking](https://cjptrucking.us/) (2024 · Landing Page): Página de aterrizaje de servicios de transporte en EEUU (HTML5, CSS3, JavaScript, Responsive Design).
+- [Alcaldía Municipal de Colcapirhua](https://www.colcapirhua.gob.bo/) (2026 · Información Pública): Portal oficial de servicios digitales, trámites y gaceta municipal de Colcapirhua (HTML5, CSS3, JavaScript, Responsive Design).
+- [Crisoy](https://crisoy-web.vercel.app/) (2026 · E-commerce): Catálogo web y sistema de pedidos por paquetes de aceite de soya fortificado en Cochabamba (E-commerce, Catálogo Web, Pedidos Online, Responsive Design).
+
+## Equipo de ingeniería
+
+- **Brayan R. Apaza** — Software Engineer (`@brayanAplm`)
+- **Elias C. Coca Rojas** — Software Engineer (`@eliascoca85` · GitHub: https://github.com/eliascoca85 · LinkedIn: https://www.linkedin.com/in/mauricio-coca85)
+- **Roberto C. Escalera** — Software Engineer (`@roberto8695` · GitHub: https://github.com/roberto8695 · LinkedIn: https://linkedin.com/in/roberto-escalera)
+
+## Contexto extendido para LLMs
+
+- [Versión completa (llms-full.txt)](https://tegrity-soft.tech/llms-full.txt): Detalle íntegro de preguntas frecuentes, proceso de trabajo, especificaciones técnicas y textos legales.
